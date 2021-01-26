@@ -356,6 +356,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1712961862
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.288855
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.796873
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.128622
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102703411371536542, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
+      propertyPath: m_Name
+      value: Super Fancy Player Controller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
 --- !u!1001 &1745038051
 PrefabInstance:
   m_ObjectHideFlags: 0
