@@ -20,7 +20,7 @@ public class PlayFancySound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var leertasteWurdeGedrueckt = Input.GetKeyDown(KeyCode.Space);
+        var leertasteWurdeGedrueckt = Input.GetKeyDown(KeyCode.UpArrow);
 
         if (leertasteWurdeGedrueckt) {
             fancySound.Play();
