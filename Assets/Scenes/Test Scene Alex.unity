@@ -408,6 +408,10 @@ PrefabInstance:
       value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 2617941798024354083, guid: bc74dc8dc69ec5f4e9341887bb01c616, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617941798024354083, guid: bc74dc8dc69ec5f4e9341887bb01c616, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
