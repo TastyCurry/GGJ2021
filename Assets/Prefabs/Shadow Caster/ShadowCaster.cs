@@ -1,72 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShadowCaster : MonoBehaviour
 {
+    Shadow shadow;
+    Mesh mesh;
+    Vector3[] vertices;
+    Vector3[] allVertices;
 
-    ShadowReceiver[] shadowReceivers;
-    ShadowCanvas shadowCanvas;
-    Vector3[] shadowVertices = new Vector3[0];
+    public Vector3[] AllVertices => allVertices;
+
+    public Shadow Shadow => shadow;
 
     void Awake()
     {
-        shadowReceivers = FindObjectsOfType<ShadowReceiver>();
-        shadowCanvas = FindObjectOfType<ShadowCanvas>();
+        shadow = transform.GetComponentInChildren<Shadow>();
 
-        
+        mesh = GetComponent<MeshFilter>().mesh;
+        vertices = mesh.vertices.Select(v => v).Distinct().ToArray();
+
+        allVertices = CalculateWorldVertices(vertices);
+    }
+
+    private Vector3[] CalculateWorldVertices(Vector3[] vertices)
+    {
+        Matrix4x4 localToWorld = transform.localToWorldMatrix;
+        List<Vector3> worldVertices = new List<Vector3>();
+
+        for (int i = 0; i < vertices.Length; ++i)
+        {
+            Vector3 worldVertex = localToWorld.MultiplyPoint3x4(vertices[i]);
+            worldVertices.Add(worldVertex);
+        }
+
+        return worldVertices.ToArray();
     }
 
     void Start()
     {
-        
-
-
+        //for (var i = 0; i < frontVertices.Length; i++)
+        //{
+        //    print(frontVertices[i]);
+        //}
     }
 
+    // Update is called once per frame
     void Update()
     {
-        var shadowCasterPosition = transform.position;
-
-        for (int i = 0; i < shadowReceivers.Length; i++)
-        {
-            var shadowReceiver = shadowReceivers[i];
-            var frontVertices = shadowReceiver.FrontVertices;
-            this.shadowVertices = CalculateShadowVertices(shadowCasterPosition, frontVertices);
-        }
-    }
-
-    private Vector3[] CalculateShadowVertices(Vector3 shadowCasterPosition, Vector3[] frontVertices)
-    {
-        List<Vector3> shadowVertices = new List<Vector3>();
-        for (int j = 0; j < frontVertices.Length; j++)
-        {
-            var shadowReceiverVertex = frontVertices[j];
-
-            var rayDirection = shadowReceiverVertex - shadowCasterPosition;
-
-            var lightRay = new Ray(shadowCasterPosition, rayDirection);
-
-            float intersectionDistance;
-            var hit = shadowCanvas.Plane.Raycast(lightRay, out intersectionDistance);
-            if (hit)
-            {
-                var shadowVertex = lightRay.GetPoint(intersectionDistance);
-                shadowVertices.Add(shadowVertex);
-            }
-        }
-
-        return shadowVertices.ToArray();
-    }
-
-    void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
-
-        for (int i = 0; i < shadowVertices.Length; i++)
-        {
-            var shadowVertex = shadowVertices[i];
-            Gizmos.DrawSphere(shadowVertex, 0.1f);
-        }
-
+        allVertices = CalculateWorldVertices(vertices);
     }
 }
