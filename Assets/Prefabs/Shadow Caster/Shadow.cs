@@ -6,6 +6,7 @@ using UnityEngine;
 public class Shadow : MonoBehaviour
 {
     MeshFilter meshFilter;
+    PolygonCollider2D polygonCollider;
 
     Vector3[] shadowVertices = new Vector3[0];
 
@@ -15,10 +16,17 @@ public class Shadow : MonoBehaviour
 
         set
         {
+            Matrix4x4 worldToLocal = transform.worldToLocalMatrix;
 
-            var shadowVertices2D = value.Select(v => new Vector2(v.x, v.y)).ToList();
 
-            List<Vector2> convexHull = GetConvexHull(shadowVertices2D);
+
+            var shadowVertices2D = value.Select(v =>
+            {
+                var local = worldToLocal.MultiplyPoint3x4(v);                
+                return new Vector2(local.x, local.y);
+            }).ToArray();
+
+            List<Vector2> convexHull = GetConvexHull(shadowVertices2D.ToList());
 
             shadowVertices = convexHull.Select(v => new Vector3(v.x, v.y, 0.0f)).ToArray();
 
@@ -35,9 +43,6 @@ public class Shadow : MonoBehaviour
                 tri[i * 3] = 0;
                 tri[(i * 3) + 1] = i + 1;
                 tri[(i * 3) + 2] = i + 2;
-
-
-
             }
 
 
@@ -51,12 +56,13 @@ public class Shadow : MonoBehaviour
             meshFilter.mesh.normals = normals;
             meshFilter.mesh.triangles = tri;
 
-            this.meshFilter = meshFilter;
+            polygonCollider.points = shadowVertices2D;
         }
     }
     void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
+        polygonCollider = GetComponent<PolygonCollider2D>();
     }
 
     void Start()
