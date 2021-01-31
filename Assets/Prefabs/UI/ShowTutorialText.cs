@@ -9,16 +9,20 @@ using UnityEngine.UIElements;
 public class ShowTutorialText : MonoBehaviour
 {
    [SerializeField]
-   private Transform playerPos;
+   private Transform playerPos,lightPos;
    
    [SerializeField]
-   private string text;
+   private string textPlayer, textLight;
 
    [SerializeField]
    private Text textField;
 
    [SerializeField]
    private GameObject tutorialUI;
+  
+   [SerializeField]
+   private float distance;
+   
    private void Start()
    {
       StartCoroutine(WaitUntilPos());
@@ -28,8 +32,14 @@ public class ShowTutorialText : MonoBehaviour
    {
       yield return new WaitUntil(() => playerPos.position.x >= this.gameObject.transform.position.x);
       tutorialUI.SetActive(true);
-      textField.text = text; 
-      yield return new WaitUntil(() => playerPos.position.x - 0.5 > this.gameObject.transform.position.x);
+      textField.text = textPlayer; 
+      yield return new WaitUntil(() => playerPos.position.x - distance > this.gameObject.transform.position.x);
+      tutorialUI.SetActive(false);
+      if (textLight == "") yield break;
+      yield return new WaitForSeconds(3.0f);
+      tutorialUI.SetActive(true);
+      textField.text = textLight; 
+      yield return new WaitUntil(() => lightPos.position.x - 1.5 > this.gameObject.transform.position.x);
       tutorialUI.SetActive(false);
    }
 }
