@@ -19,10 +19,10 @@ public class NextScene : MonoBehaviour
 
     IEnumerator WaitUntilAudio()
     {
-        yield return new WaitUntil(() => CollectMemory.IsTrigger);
+        yield return new WaitWhile(() => !source.isPlaying);
         yield return new WaitWhile(() => source.isPlaying);
         crossfade.SetTrigger("Fade_in");
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(0.9f);
         SceneManager.LoadScene("Test Level Anna");
     }
     

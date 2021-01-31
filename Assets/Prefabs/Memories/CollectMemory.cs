@@ -12,17 +12,14 @@ public class CollectMemory : MonoBehaviour
     private GameObject memory;
     [HideInInspector]
     public static bool IsTrigger;
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (IsTrigger)
         {
-            if (IsTrigger)
-            {
-                memory.SetActive(false);
-                source.Play();   
-            }
+            memory.SetActive(false);
+            source.Play();
         }
     }
 
