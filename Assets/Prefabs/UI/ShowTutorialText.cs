@@ -25,7 +25,9 @@ public class ShowTutorialText : MonoBehaviour
    IEnumerator WaitUntilPos()
    {
       yield return new WaitUntil(() => playerPos.position.x >= this.gameObject.transform.position.x);
-      textField.text = text;
+      textField.text = text; //laufen ad buttons 
+      // Lichtsteuerung erklären pfeiltasten warten bis licht verschben wurde
+      //
       yield return new WaitUntil(() => playerPos.position.x - 0.5 > this.gameObject.transform.position.x);
    }
 }

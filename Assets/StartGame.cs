@@ -22,7 +22,7 @@ public class StartGame : MonoBehaviour
 
     IEnumerator WaitUntilAudio()
     {
-        yield return new WaitWhile (()=> source.isPlaying);
+        yield return new WaitWhile (()=> (source.isPlaying && start_btn.activeSelf));
         crossfade.SetTrigger("Fade_out");
     }
 
