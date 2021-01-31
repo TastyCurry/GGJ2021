@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class PanicInTheShadow : MonoBehaviour
 {
-    private AudioSource audioSource;
-
     [SerializeField]
-    private AudioClip mildPanicAudioClip;
+    private AudioSource mildPanicAudio;
     [SerializeField]
-    private AudioClip panicAudioClip;
+    private AudioSource panicAudio;
     [SerializeField]
-    private AudioClip extremePanicAudioClip;
+    private AudioSource extremePanicAudio;
     [SerializeField]
-    private AudioClip deathAudioClip;
+    private AudioSource deathAudio;
 
     [SerializeField]
     private float distanceForMildPanic;
@@ -49,27 +47,24 @@ public class PanicInTheShadow : MonoBehaviour
             {
                 panicMode = value;
 
+                mildPanicAudio.Stop();
+                panicAudio.Stop();
+                extremePanicAudio.Stop();
+                deathAudio.Stop();
+
                 switch (panicMode)
                 {
-                    case PanicModes.noPanic:
-                        audioSource.Stop();
-                        break;
                     case PanicModes.mildPanic:
-                        audioSource.clip = mildPanicAudioClip;
-                        audioSource.Play();
+                        mildPanicAudio.Play();
                         break;
                     case PanicModes.panic:
-                        audioSource.clip = panicAudioClip;
-                        audioSource.Play();
+                        panicAudio.Play();
                         break;
                     case PanicModes.extremePanic:
-                        audioSource.clip = extremePanicAudioClip;
-                        audioSource.Play();
+                        extremePanicAudio.Play();
                         break;
                     case PanicModes.death:
-                        audioSource.clip = deathAudioClip;
-                        audioSource.Play();
-
+                        deathAudio.Play();
                         StartCoroutine(waitForReload());
                         break;
                     default:
@@ -119,8 +114,6 @@ public class PanicInTheShadow : MonoBehaviour
     void Awake()
     {
         lightSource = FindObjectOfType<LightSource>();
-        audioSource = FindObjectOfType<AudioSource>();
-
     }
 
     // Update is called once per frame
@@ -134,7 +127,7 @@ public class PanicInTheShadow : MonoBehaviour
 
     IEnumerator waitForReload()
     {
-        while (audioSource.isPlaying)
+        while (deathAudio.isPlaying)
         {
             yield return null;
         }
