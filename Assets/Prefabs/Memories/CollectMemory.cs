@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,12 @@ public class CollectMemory : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {    
-            Debug.Log("hi");
+            //collect memory
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print("hdffklsjflskdj");
     }
 }
