@@ -36,7 +36,7 @@ public class LightSource : MonoBehaviour
         float h = Input.GetAxis("Horizontal2");
         float v = Input.GetAxis("Vertical2");
 
-        transform.Translate(h * 0.01f, v * 0.01f, 0f);
+        transform.Translate(h * 0.03f, v * 0.03f, 0f);
 
     }
 
