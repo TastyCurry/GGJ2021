@@ -1,15 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class ShowTutorialText : MonoBehaviour
 {
    [SerializeField]
-   private Transform playerPos,lightPos;
+   private Transform playerPos, lightPos;
    
    [SerializeField][TextArea]
    private string textPlayer, textLight;

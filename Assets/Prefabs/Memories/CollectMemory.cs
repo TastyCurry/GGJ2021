@@ -2,34 +2,62 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CollectMemory : MonoBehaviour
 {
-    [SerializeField]
+
+    private ParticleSystem particleSystem;
     private AudioSource source;
-    [SerializeField]
-    private GameObject memory;
-    [HideInInspector]
-    public static bool IsTrigger;
+    public AudioSource Source { get => source; }
+
+    private MemoryState state;
+
+    public void Awake()
+    {
+        particleSystem = GetComponent<ParticleSystem>();
+        source = GetComponent<AudioSource>();
+        State = MemoryState.notCollectedYet;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsTrigger)
+        switch (State)
         {
-            memory.SetActive(false);
-            source.Play();
+            case MemoryState.collecting:
+                source.Play();
+                State = MemoryState.collected;
+                break;
+            case MemoryState.collected:
+                particleSystem.Stop();
+                break;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        IsTrigger = true;
+        if (State == MemoryState.notCollectedYet) {
+            State = MemoryState.collecting;
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public MemoryState State
     {
-        IsTrigger = false;
+        get => state;
+        set
+        {
+            if (state != value)
+            {
+                state = value;
+            }
+        }
     }
 }
+
+public enum MemoryState
+{
+    notCollectedYet,
+    collecting,
+    collected
+}
+

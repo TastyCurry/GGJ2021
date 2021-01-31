@@ -1,15 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class PanicInTheShadow : MonoBehaviour
 {
-
-
     private AudioSource audioSource;
-
 
     [SerializeField]
     private AudioClip mildPanicAudioClip;
@@ -35,6 +31,9 @@ public class PanicInTheShadow : MonoBehaviour
     LightSource lightSource;
 
     private PanicModes panicMode;
+
+
+
 
     public PanicModes PanicMode
     {
@@ -101,17 +100,14 @@ public class PanicInTheShadow : MonoBehaviour
             else if (distanceToLightSource >= distanceForMildPanic && distanceToLightSource < distanceForPanic)
             {
                 PanicMode = PanicModes.mildPanic;
-
             }
             else if (distanceToLightSource >= distanceForPanic && distanceToLightSource < distanceForExtremePanic)
             {
                 PanicMode = PanicModes.panic;
-
             }
             else if (distanceToLightSource >= distanceForExtremePanic && distanceToLightSource < distanceForDeath)
             {
                 PanicMode = PanicModes.extremePanic;
-
             }
             else if (distanceToLightSource >= distanceForDeath)
             {
