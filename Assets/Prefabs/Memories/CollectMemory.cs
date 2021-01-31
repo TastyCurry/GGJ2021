@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectMemory : MonoBehaviour
 {
@@ -9,26 +10,29 @@ public class CollectMemory : MonoBehaviour
     private AudioSource source;
     [SerializeField]
     private GameObject memory;
-    private bool _isTrigger;
+    [HideInInspector]
+    public static bool IsTrigger;
+    
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.E))
-        {   
-            if(_isTrigger)memory.SetActive(false);
+        {
+            if (IsTrigger)
+            {
+                memory.SetActive(false);
+                source.Play();   
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(!source.isPlaying)source.Play();
-        _isTrigger = true;
-        print(_isTrigger);
+        IsTrigger = true;
     }
-    
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        _isTrigger = false;
-        print(_isTrigger);
+        IsTrigger = false;
     }
 }
