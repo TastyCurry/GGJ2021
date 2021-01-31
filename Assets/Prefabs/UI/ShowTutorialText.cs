@@ -19,10 +19,10 @@ public class ShowTutorialText : MonoBehaviour
 
    private void Start()
    {
-      StartCoroutine(WaitAndPrint());
+      StartCoroutine(WaitUntilPos());
    }
 
-   IEnumerator WaitAndPrint()
+   IEnumerator WaitUntilPos()
    {
       yield return new WaitUntil(() => playerPos.position.x >= this.gameObject.transform.position.x);
       textField.text = text;
