@@ -8,34 +8,33 @@ public class Shadow : MonoBehaviour
     MeshFilter meshFilter;
     PolygonCollider2D polygonCollider;
 
-    Vector3[] shadowVertices = new Vector3[0];
+    Vector3[] shadowVertices3D = new Vector3[0];
 
     public Vector3[] ShadowVertices
     {
-        get => shadowVertices;
+        get => shadowVertices3D;
 
         set
         {
             Matrix4x4 worldToLocal = transform.worldToLocalMatrix;
 
-
-
-            var shadowVertices2D = value.Select(v =>
+            var localShadowVertices2D = value.Select(v =>
             {
                 var local = worldToLocal.MultiplyPoint3x4(v);                
                 return new Vector2(local.x, local.y);
             }).ToArray();
 
-            List<Vector2> convexHull = GetConvexHull(shadowVertices2D.ToList());
+            List<Vector2> convexHull = GetConvexHull(localShadowVertices2D.ToList());
+            shadowVertices3D = convexHull.Select(v => new Vector3(v.x, v.y, 0.0f)).ToArray();
+            var shadowVertices2D = convexHull.ToArray();
 
-            shadowVertices = convexHull.Select(v => new Vector3(v.x, v.y, 0.0f)).ToArray();
 
             Mesh mesh = new Mesh();
             meshFilter.mesh = mesh;
 
-            meshFilter.mesh.vertices = shadowVertices;
+            meshFilter.mesh.vertices = shadowVertices3D;
 
-            List<Triangle> triangles = TriangulateConvexPolygon(shadowVertices);
+            List<Triangle> triangles = TriangulateConvexPolygon(shadowVertices3D);
             int[] tri = new int[triangles.Count * 3];
             for (int i = 0; i < triangles.Count; i++)
             {
@@ -46,7 +45,7 @@ public class Shadow : MonoBehaviour
             }
 
 
-            Vector3[] normals = new Vector3[shadowVertices.Length];
+            Vector3[] normals = new Vector3[shadowVertices3D.Length];
             for (int i = 0; i < normals.Length; i++)
             {
                 normals[i] = Vector3.forward;
