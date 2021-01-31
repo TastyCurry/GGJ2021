@@ -167,7 +167,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// 0.1f is a small offset to start the ray from inside the character
 			// it is also good to note that the transform position in the sample assets is at the base of the character
 
-			RaycastHit2D hitInfo = Physics2D.Raycast(transform.position + (Vector3.up * 0.1f), Vector2.down, m_GroundCheckDistance, ~(1 << 6));
+			RaycastHit2D hitInfo = Physics2D.Raycast(transform.position + (Vector3.up * 0.1f), Vector2.down, m_GroundCheckDistance, (1 << 7));
 			
 			if (hitInfo.collider != null)
 			{

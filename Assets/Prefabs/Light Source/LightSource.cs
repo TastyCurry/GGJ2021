@@ -32,6 +32,12 @@ public class LightSource : MonoBehaviour
 
             shadowReceiver.Shadow.ShadowVertices = CalculateShadowVertices(shadowCasterPosition, frontVertices);
         }
+
+        float h = Input.GetAxis("Horizontal2");
+        float v = Input.GetAxis("Vertical2");
+
+        transform.Translate(h * 0.01f, v * 0.01f, 0f);
+
     }
 
     private Vector3[] CalculateShadowVertices(Vector3 shadowCasterPosition, Vector3[] frontVertices)
