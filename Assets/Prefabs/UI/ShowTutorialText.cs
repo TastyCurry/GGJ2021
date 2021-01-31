@@ -17,6 +17,8 @@ public class ShowTutorialText : MonoBehaviour
    [SerializeField]
    private Text textField;
 
+   [SerializeField]
+   private GameObject tutorialUI;
    private void Start()
    {
       StartCoroutine(WaitUntilPos());
@@ -24,10 +26,10 @@ public class ShowTutorialText : MonoBehaviour
 
    IEnumerator WaitUntilPos()
    {
+      tutorialUI.SetActive(true);
       yield return new WaitUntil(() => playerPos.position.x >= this.gameObject.transform.position.x);
-      textField.text = text; //laufen ad buttons 
-      // Lichtsteuerung erklären pfeiltasten warten bis licht verschben wurde
-      //
+      textField.text = text; 
       yield return new WaitUntil(() => playerPos.position.x - 0.5 > this.gameObject.transform.position.x);
+      tutorialUI.SetActive(false);
    }
 }
