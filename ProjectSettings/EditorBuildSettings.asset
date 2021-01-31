@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Level Anna.unity
     guid: f9010a365d266c948bc551ac9c55ffac
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 7e7f1e09723414249b89fb1ee87121cb
   m_configObjects: {}
