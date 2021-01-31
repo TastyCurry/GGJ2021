@@ -1605,10 +1605,10 @@ MonoBehaviour:
   panicAudioClip: {fileID: 8300000, guid: 1247a6a811b165e45ba62a28fc3710f4, type: 3}
   extremePanicAudioClip: {fileID: 8300000, guid: b9bc4dc85de5d3d4eb08377190caf495, type: 3}
   deathAudioClip: {fileID: 8300000, guid: 89f867da63aebc94ea56a0d45a58ab67, type: 3}
-  distanceForMildPanic: 3
-  distanceForPanic: 5
-  distanceForExtremePanic: 8
-  distanceForDeath: 10
+  distanceForMildPanic: 5
+  distanceForPanic: 7
+  distanceForExtremePanic: 10
+  distanceForDeath: 12
 --- !u!82 &4397790413699872179
 AudioSource:
   m_ObjectHideFlags: 0
