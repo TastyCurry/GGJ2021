@@ -26,8 +26,8 @@ public class ShowTutorialText : MonoBehaviour
 
    IEnumerator WaitUntilPos()
    {
-      tutorialUI.SetActive(true);
       yield return new WaitUntil(() => playerPos.position.x >= this.gameObject.transform.position.x);
+      tutorialUI.SetActive(true);
       textField.text = text; 
       yield return new WaitUntil(() => playerPos.position.x - 0.5 > this.gameObject.transform.position.x);
       tutorialUI.SetActive(false);
