@@ -171,9 +171,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			
 			if (hitInfo.collider != null)
 			{
-
-				print(hitInfo.collider);
-
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
 				m_Animator.applyRootMotion = true;
