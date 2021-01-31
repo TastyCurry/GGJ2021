@@ -11,7 +11,7 @@ public class ShowTutorialText : MonoBehaviour
    [SerializeField]
    private Transform playerPos,lightPos;
    
-   [SerializeField]
+   [SerializeField][TextArea]
    private string textPlayer, textLight;
 
    [SerializeField]
@@ -36,10 +36,10 @@ public class ShowTutorialText : MonoBehaviour
       yield return new WaitUntil(() => playerPos.position.x - distance > this.gameObject.transform.position.x);
       tutorialUI.SetActive(false);
       if (textLight == "") yield break;
-      yield return new WaitForSeconds(3.0f);
+      yield return new WaitForSeconds(2.0f);
       tutorialUI.SetActive(true);
       textField.text = textLight; 
-      yield return new WaitUntil(() => lightPos.position.x - 1.5 > this.gameObject.transform.position.x);
+      yield return new WaitUntil(() => lightPos.position.x - 4.5 > this.gameObject.transform.position.x);
       tutorialUI.SetActive(false);
    }
 }
