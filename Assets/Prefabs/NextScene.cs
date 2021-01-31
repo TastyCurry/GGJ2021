@@ -46,7 +46,7 @@ public class NextScene : MonoBehaviour
 
             if (timeUntilNextScene <= 0)
             {
-                SceneManager.LoadScene("Test Level Anna");
+                SceneManager.LoadScene("End");
             }
 
         }
