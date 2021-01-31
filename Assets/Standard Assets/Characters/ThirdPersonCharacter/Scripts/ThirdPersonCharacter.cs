@@ -167,10 +167,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// 0.1f is a small offset to start the ray from inside the character
 			// it is also good to note that the transform position in the sample assets is at the base of the character
 
-			RaycastHit2D hitInfo = Physics2D.Raycast(transform.position + (Vector3.up * 0.1f), Vector2.down, m_GroundCheckDistance);
+			RaycastHit2D hitInfo = Physics2D.Raycast(transform.position + (Vector3.up * 0.1f), Vector2.down, m_GroundCheckDistance, ~(1 << 6));
 			
 			if (hitInfo.collider != null)
 			{
+
+				print(hitInfo.collider);
+
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
 				m_Animator.applyRootMotion = true;
@@ -181,6 +184,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
+
+		
+		
 		}
 	}
 }
