@@ -175,7 +175,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -2072,6 +2072,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+--- !u!1001 &466238583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: distance
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: lightPos
+      value: 
+      objectReference: {fileID: 1914322137}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 990966174}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: textField
+      value: 
+      objectReference: {fileID: 8523472508971581557}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: textPlayer
+      value: springen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: tutorialUI
+      value: 
+      objectReference: {fileID: 736600865}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675487, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: m_Name
+      value: TutorialTextTrigger_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
 --- !u!1001 &487491710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2081,7 +2162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1379053018476185803, guid: 4e78efa929ec14a4d96a21960e9392fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2155,7 +2236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527429259
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2425,6 +2506,14 @@ PrefabInstance:
         key.
       objectReference: {fileID: 0}
     - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: distance
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: lightPos
+      value: 
+      objectReference: {fileID: 1914322137}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 990966174}
@@ -2432,6 +2521,14 @@ PrefabInstance:
       propertyPath: textField
       value: 
       objectReference: {fileID: 8523472508971581557}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: textLight
+      value: arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
+      propertyPath: textPlayer
+      value: wasd
+      objectReference: {fileID: 0}
     - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
       propertyPath: tutorialUI
       value: 
@@ -2491,79 +2588,6 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 5947664009496467649, guid: 420756feefce79a4a85a117ad1322dc5, type: 3}
   m_PrefabInstance: {fileID: 1727717171}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &892419847
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: text
-      value: You can move the light source by pressing the A or D key.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 990966174}
-    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: textField
-      value: 
-      objectReference: {fileID: 8523472508971581557}
-    - target: {fileID: 3933797489679675485, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: tutorialUI
-      value: 
-      objectReference: {fileID: 736600865}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -20.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675486, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3933797489679675487, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
-      propertyPath: m_Name
-      value: TutorialTextTrigger_2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f20fe0f0296b04e92a66529f82096275, type: 3}
 --- !u!4 &990966174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
