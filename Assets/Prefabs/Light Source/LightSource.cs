@@ -9,6 +9,8 @@ public class LightSource : MonoBehaviour
     ShadowCanvas shadowCanvas;
     Vector3[] shadowVertices = new Vector3[0];
 
+    [SerializeField]
+    private float speed = 1;
     void Awake()
     {
         shadowReceivers = FindObjectsOfType<ShadowCaster>();
@@ -36,7 +38,7 @@ public class LightSource : MonoBehaviour
         float h = Input.GetAxis("Horizontal2");
         float v = Input.GetAxis("Vertical2");
 
-        transform.Translate(h * 0.03f, v * 0.03f, 0f);
+        transform.Translate(h * speed * Time.deltaTime, v * speed * Time.deltaTime, 0f);
 
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,10 @@ public class NextScene : MonoBehaviour
     float timeUntilNextScene = 1;
 
     CollectMemory collectMemory;
+
+    [SerializeField]
+    private String sceneName;
+
 
     [SerializeField]
     private Animator crossfade;
@@ -46,7 +51,7 @@ public class NextScene : MonoBehaviour
 
             if (timeUntilNextScene <= 0)
             {
-                SceneManager.LoadScene("End");
+                SceneManager.LoadScene(sceneName);
             }
 
         }
