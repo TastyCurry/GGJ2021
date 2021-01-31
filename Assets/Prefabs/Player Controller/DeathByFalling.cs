@@ -52,7 +52,6 @@ public class DeathByFalling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(rigidbody.velocity.y);
         Falling = rigidbody.velocity.y < fallingVelecityForDeath;
     }
 
