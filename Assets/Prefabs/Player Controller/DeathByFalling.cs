@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -32,15 +33,19 @@ public class DeathByFalling : MonoBehaviour
 
         set
         {
-            if (falling != value) {
+            if (falling != value)
+            {
                 falling = value;
 
-                if (falling) {
+                if (falling)
+                {
                     audioSource.clip = fallingAudioClip;
                     audioSource.Play();
+
+                    StartCoroutine(waitForReload()); //Start Coroutine
                 }
             }
-            
+
         }
     }
 
@@ -50,4 +55,15 @@ public class DeathByFalling : MonoBehaviour
         print(rigidbody.velocity.y);
         Falling = rigidbody.velocity.y < fallingVelecityForDeath;
     }
+
+    IEnumerator waitForReload()
+    {
+        while (audioSource.isPlaying)
+        {
+            yield return null;
+        }
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
 }

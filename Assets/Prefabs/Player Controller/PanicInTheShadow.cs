@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class PanicInTheShadow : MonoBehaviour
@@ -69,6 +70,8 @@ public class PanicInTheShadow : MonoBehaviour
                     case PanicModes.death:
                         audioSource.clip = deathAudioClip;
                         audioSource.Play();
+
+                        StartCoroutine(waitForReload());
                         break;
                     default:
                         break;
@@ -131,6 +134,16 @@ public class PanicInTheShadow : MonoBehaviour
         var playerVector = transform.position;
 
         DistanceToLightSource = Vector2.Distance(lightVector, playerVector);
+    }
+
+    IEnumerator waitForReload()
+    {
+        while (audioSource.isPlaying)
+        {
+            yield return null;
+        }
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
 
