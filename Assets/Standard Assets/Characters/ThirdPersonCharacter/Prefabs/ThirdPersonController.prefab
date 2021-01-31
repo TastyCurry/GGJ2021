@@ -1608,7 +1608,7 @@ MonoBehaviour:
   distanceForMildPanic: 5
   distanceForPanic: 7
   distanceForExtremePanic: 10
-  distanceForDeath: 12
+  distanceForDeath: 20
 --- !u!82 &4397790413699872179
 AudioSource:
   m_ObjectHideFlags: 0
